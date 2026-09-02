@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作品ギャラリー — プログラミング基礎A</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: #F0F3F8;
+      color: #1C1917;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    .site-header {
+      background: #1B3A6B;
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+
+    .header-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #93B8E0;
+      margin-bottom: 10px;
+    }
+
+    .header-title {
+      font-size: clamp(26px, 5vw, 38px);
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .header-sub {
+      font-size: 14px;
+      color: #93B8E0;
+    }
+
+    /* ── Main ── */
+    .main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 72px;
+    }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #6B7A90;
+      margin-bottom: 20px;
+    }
+
+    /* ── Team grid ── */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 20px;
+    }
+
+    .team-card {
+      background: #FFFFFF;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,.07), 0 4px 16px rgba(0,0,0,.05);
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .team-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,.1), 0 12px 32px rgba(0,0,0,.08);
+      transform: translateY(-2px);
+    }
+
+    .card-stripe {
+      height: 5px;
+    }
+
+    .card-body {
+      padding: 24px 24px 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .team-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .card-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #9BA5B4;
+    }
+
+    .card-theme {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.35;
+      color: #1C1917;
+    }
+
+    .card-footer {
+      margin-top: auto;
+      padding-top: 16px;
+    }
+
+    .visit-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 20px;
+      border-radius: 7px;
+      border: none;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity .15s, transform .15s;
+    }
+    .visit-btn:hover { opacity: .88; transform: translateX(2px); }
+    .visit-btn svg { flex-shrink: 0; }
+
+    /* ── Footer ── */
+    .site-footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 12px;
+      color: #9BA5B4;
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <p class="header-eyebrow">Student Works</p>
+  <h1 class="header-title">作品ギャラリー</h1>
+  <p class="header-sub">プログラミング基礎A — 2026年度</p>
+</header>
+
+<main class="main">
+  <p class="section-label">各チームのサイトを見る</p>
+
+  <div class="team-grid">
+
+    <!-- Team A -->
+    <div class="team-card">
+      <div class="card-stripe" style="background:#7C3AED;"></div>
+      <div class="card-body">
+        <div class="card-top">
+          <div class="team-badge" style="background:#7C3AED;">A</div>
+          <span class="card-label">Team A</span>
+        </div>
+        <div class="card-theme">カフェ紹介</div>
+        <div class="card-footer">
+          <a class="visit-btn" style="background:#7C3AED;" href="./teamA/">
+            サイトを見る
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Team B -->
+    <div class="team-card">
+      <div class="card-stripe" style="background:#B45309;"></div>
+      <div class="card-body">
+        <div class="card-top">
+          <div class="team-badge" style="background:#B45309;">B</div>
+          <span class="card-label">Team B</span>
+        </div>
+        <div class="card-theme">映画・アニメ紹介</div>
+        <div class="card-footer">
+          <a class="visit-btn" style="background:#B45309;" href="./teamB/">
+            サイトを見る
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Team C -->
+    <div class="team-card">
+      <div class="card-stripe" style="background:#065F46;"></div>
+      <div class="card-body">
+        <div class="card-top">
+          <div class="team-badge" style="background:#065F46;">C</div>
+          <span class="card-label">Team C</span>
+        </div>
+        <div class="card-theme">グルメ・おでかけ紹介</div>
+        <div class="card-footer">
+          <a class="visit-btn" style="background:#065F46;" href="./teamC/">
+            サイトを見る
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Team D -->
+    <div class="team-card">
+      <div class="card-stripe" style="background:#1D4ED8;"></div>
+      <div class="card-body">
+        <div class="card-top">
+          <div class="team-badge" style="background:#1D4ED8;">D</div>
+          <span class="card-label">Team D</span>
+        </div>
+        <div class="card-theme">推し紹介</div>
+        <div class="card-footer">
+          <a class="visit-btn" style="background:#1D4ED8;" href="./teamD/">
+            サイトを見る
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  プログラミング基礎A &nbsp;·&nbsp; 2026年度
+</footer>
+
+</body>
+</html>
