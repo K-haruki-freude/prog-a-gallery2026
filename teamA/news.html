@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>おしらせ - ドラえもん ファンサイト</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 基本設定 */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+            background-color: #e6f2ff;
+            color: #333;
+            line-height: 1.6;
+        }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* ヘッダー */
+        header {
+            background-color: #ffffff;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border-bottom: 5px solid #0099ff;
+        }
+        .logo { font-size: 24px; font-weight: bold; color: #0099ff; }
+        .nav-menu { display: flex; gap: 20px; }
+        .nav-menu a {
+            font-weight: bold; color: #555; padding: 5px 10px; border-radius: 15px; transition: 0.2s;
+        }
+        .nav-menu a:hover, .nav-menu a.active {
+            background-color: #0099ff; color: #fff;
+        }
+
+        /* ページ見出し */
+        .page-title {
+            max-width: 800px;
+            margin: 40px auto 20px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        .page-title h1 {
+            font-size: 28px;
+            color: #0099ff;
+            display: inline-block;
+            border-bottom: 4px dashed #ffcc00;
+            padding-bottom: 5px;
+        }
+
+        /* メインコンテンツエリア */
+        .news-container {
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            padding: 20px;
+        }
+
+        /* お知らせ一覧のカード型デザイン */
+        .news-card {
+            background-color: #fff;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 2px solid #cce5ff;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .news-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .news-date {
+            font-size: 14px;
+            color: #777;
+            font-weight: bold;
+        }
+        /* カテゴリータグ（配信、イベントなど） */
+        .tag {
+            font-size: 12px;
+            font-weight: bold;
+            padding: 4px 12px;
+            border-radius: 20px;
+            color: #fff;
+        }
+        .tag.streaming { background-color: #ff3366; } /* 配信情報用（赤） */
+        .tag.event { background-color: #ffcc00; color: #333; } /* イベント用（黄） */
+        .tag.goods { background-color: #0099ff; } /* グッズ用（青） */
+
+        .news-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+        }
+        .news-content {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.7;
+        }
+        /* 視聴ボタンなどのリンク */
+        .news-btn {
+            display: inline-block;
+            align-self: flex-start;
+            margin-top: 5px;
+            padding: 8px 20px;
+            background-color: #f0f8ff;
+            border: 2px solid #0099ff;
+            color: #0099ff;
+            font-weight: bold;
+            border-radius: 15px;
+            transition: 0.2s;
+        }
+        .news-btn:hover {
+            background-color: #0099ff;
+            color: #fff;
+        }
+
+        /* ページ移動ボタン */
+        .page-nav {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .page-nav a {
+            padding: 12px 25px;
+            background-color: #ffcc00;
+            color: #333;
+            font-weight: bold;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: 0.2s;
+        }
+        .page-nav a:hover { background-color: #ffbb00; }
+
+        /* フッター */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #333;
+            color: #fff;
+            margin-top: 60px;
+            font-size: 14px;
+        }
+
+        /* スマホ対応 */
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; }
+            .news-container { padding: 10px; }
+            .page-nav { flex-direction: column; gap: 15px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">ドラえもん ファンサイト</div>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html">TOP</a></li>
+                <li><a href="dougu.html">ひみつ<ruby>道具<rt>どうぐ</rt></ruby></a></li>
+                <li><a href="news.html" class="active">おしらせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="page-title">
+        <h1>📢 最新のおしらせ 📢</h1>
+    </div>
+
+    <main class="news-container">
+
+        <div class="news-card">
+            <div class="news-header">
+                <span class="news-date">2026年7月9日</span>
+                <span class="tag streaming">テレビ・はいしん</span>
+            </div>
+            <h2 class="news-title">🎬 アニメ「ドラえもん」の見逃し<ruby>配信<rt>はいしん</rt></ruby>がスタート！</h2>
+            <p class="news-content">
+                テレビで見られなかったお話を、スマホやパソコンからいつでも見られるようになったよ！毎週新しいお話が追加されるから、お気に入りのひみつ<ruby>道具<rt>どうぐ</rt></ruby>が出ている回を何度もチェックしよう！
+            </p>
+            <a href="https://dora-world.com/contents?t=29" class="news-btn" target="_blank">▶ 視聴ページを開く（外部サイト）</a>
+        </div>
+
+        <div class="news-card">
+            <div class="news-header">
+                <span class="news-date">2026年7月1日</span>
+                <span class="tag event">イベント</span>
+            </div>
+            <h2 class="news-title">✨ 夏休み「ひみつ<ruby>道具<rt>どうぐ</rt></ruby>スタンプラリー」を<ruby>開催<rt>かいさい</rt></ruby>！</h2>
+            <p class="news-content">
+                みんなの街のあちこちに隠されたひみつ<ruby>道具<rt>どうぐ</rt></ruby>のスタンプを集めよう！全部集めると、このサイト限定の特製オリジナル壁紙や、かっこいいバッジがもらえるチャンス！お父さんやお母さんと一緒に参加してね。
+            </p>
+            <a href="https://dora-world.com/contents?t=18" class="news-btn">🎒 くわしいルールを見る</a>
+        </div>
+
+        <div class="news-card">
+            <div class="news-header">
+                <span class="news-date">2026年6月25日</span>
+                <span class="tag goods">グッズ</span>
+            </div>
+            <h2 class="news-title">🧸 触るとふかふか！新しいドラえもんぬいぐるみが登場</h2>
+            <p class="news-content">
+                首元の大きな鈴がキラキラ光る、新しいぬいぐるみが公式ショップで発売されたよ！のび太くんのお部屋にあるような、とっても可愛いサイズ感です。お店で見かけたら抱っこしてみてね！
+            </p>
+            <a href="https://dora-world.com/goods" class="news-btn">🛍️ グッズショップへ行く</a>
+        </div>
+
+    </main>
+
+    <div class="page-nav">
+        <a href="dougu.html">◀ ひみつ道具しょうかい（まえのページ）</a>
+        <a href="index.html">TOPへもどる 🏠</a>
+    </div>
+
+    <footer>
+        <p>(C) 2026 Doraemon Fan Project. / Created for Lesson</p>
+    </footer>
+
+</body>
+</html>

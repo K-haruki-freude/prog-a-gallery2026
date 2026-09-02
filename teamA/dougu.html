@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ひみつ道具しょうかい - ドラえもん ファンサイト</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 基本設定 */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+            background-color: #e6f2ff;
+            color: #333;
+            line-height: 1.6;
+        }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* ヘッダー */
+        header {
+            background-color: #ffffff;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border-bottom: 5px solid #0099ff;
+        }
+        .logo { font-size: 24px; font-weight: bold; color: #0099ff; }
+        .nav-menu { display: flex; gap: 20px; }
+        .nav-menu a {
+            font-weight: bold; color: #555; padding: 5px 10px; border-radius: 15px; transition: 0.2s;
+        }
+        .nav-menu a:hover, .nav-menu a.active {
+            background-color: #0099ff; color: #fff;
+        }
+
+        /* メイン見出し */
+        .page-title {
+            max-width: 1000px;
+            margin: 40px auto 20px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        .page-title h1 {
+            font-size: 28px;
+            color: #0099ff;
+            display: inline-block;
+            border-bottom: 4px dashed #ffcc00;
+            padding-bottom: 5px;
+        }
+
+        /* 道具一覧のグリッドレイアウト */
+        .dougu-container {
+            max-width: 1000px;
+            margin: 0 auto 40px auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        /* 道具カードのデザイン */
+        .dougu-card {
+            background-color: #fff;
+            border-radius: 25px;
+            padding: 20px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+            border: 3px solid #cce5ff;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .dougu-card:hover {
+            transform: translateY(-5px);
+            border-color: #0099ff;
+            box-shadow: 0 10px 25px rgba(0,153,255,0.15);
+        }
+        .dougu-img {
+            width: 100%;
+            height: 180px;
+            background-color: #f0f8ff;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .dougu-img img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .dougu-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #0099ff;
+            margin-bottom: 10px;
+            background-color: #fff9e6;
+            padding: 5px 15px;
+            border-radius: 15px;
+            border: 2px solid #ffcc00;
+        }
+        .dougu-text {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* ページ移動ボタン */
+        .page-nav {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .page-nav a {
+            padding: 12px 25px;
+            background-color: #ffcc00;
+            color: #333;
+            font-weight: bold;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: 0.2s;
+        }
+        .page-nav a:hover { background-color: #ffbb00; }
+
+        /* フッター */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #333;
+            color: #fff;
+            margin-top: 60px;
+            font-size: 14px;
+        }
+
+        /* スマホ対応 */
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; }
+            .dougu-container { gap: 20px; padding: 10px; }
+            .page-nav { flex-direction: column; gap: 15px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">ドラえもん ファンサイト</div>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html">TOP</a></li>
+                <li><a href="dougu.html" class="active">ひみつ<ruby>道具<rt>どうぐ</rt></ruby></a></li>
+                <li><a href="news.html">おしらせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="page-title">
+        <h1>✨ ひみつ<ruby>道具<rt>どうぐ</rt></ruby>しょうかい ✨</h1>
+    </div>
+
+    <main class="dougu-container">
+
+        <div class="dougu-card">
+            <div class="dougu-img">
+                <img src="takekoputa.png" alt="タケコプター">
+            </div>
+            <h2 class="dougu-name">タケコプター</h2>
+            <p class="dougu-text">
+                頭につけるだけで、空を自由に飛ぶことができる道具です。時速80キロメートルで、3時間続けて飛ぶことができます。
+            </p>
+        </div>
+
+        <div class="dougu-card">
+            <div class="dougu-img">
+                <img src="dokodemodoa.png" alt="どこでもドア">
+            </div>
+            <h2 class="dougu-name">どこでもドア</h2>
+            <p class="dougu-text">
+                行きたい場所を頭の中で思い浮かべながらドアを開けると、どこにでも一瞬で移動することができる、とても便利な道具です。
+            </p>
+        </div>
+
+        <div class="dougu-card">
+            <div class="dougu-img">
+                <img src="taimumasin.png" alt="タイムマシン">
+            </div>
+            <h2 class="dougu-name">タイムマシン</h2>
+            <p class="dougu-text">
+                過去や未来へ、時間を超えて自由に移動できる道具です。のび太くんの勉強机の引き出しの中に入り口があります。
+            </p>
+        </div>
+
+    </main>
+
+    <div class="page-nav">
+        <a href="index.html">◀ ドラえもんのプロフィール（まえのページ）</a>
+        <a href="news.html">告知・おしらせ（つぎのページ） ▶</a>
+    </div>
+
+    <footer>
+        <p>(C) 2026 Doraemon Fan Project. / Created for Lesson</p>
+    </footer>
+
+</body>
+</body>

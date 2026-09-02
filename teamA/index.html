@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ドラえもん しょうかいページ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- 全体の基本設定 --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+            background-color: #e6f2ff; /* 明るい薄水色 */
+            color: #333;
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+
+        /* --- ヘッダー --- */
+        header {
+            background-color: #ffffff;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border-bottom: 5px solid #0099ff; /* ドラえもんカラーの青 */
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0099ff;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-menu a {
+            font-weight: bold;
+            color: #555;
+            padding: 5px 10px;
+            border-radius: 15px;
+            transition: 0.2s;
+        }
+        .nav-menu a:hover {
+            background-color: #0099ff;
+            color: #fff;
+        }
+
+        /* --- メインビジュアルエリア（背景にモチーフ風の丸） --- */
+        .profile-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: radial-gradient(circle at 80% 20%, #ffcc00 10%, #0099ff 100%); /* 鈴の黄色とドラえもんの青 */
+            border-radius: 30px;
+            padding: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            color: white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        /* 左エリア：ビジュアル */
+        .visual-area {
+            flex: 1;
+            min-width: 300px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            border: 3px dashed #fff;
+        }
+        .visual-area img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* 右エリア：基本情報 */
+        .info-area {
+            flex: 1.2;
+            min-width: 300px;
+            background-color: rgba(255, 255, 255, 0.95);
+            color: #333;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .catchphrase {
+            font-size: 16px;
+            color: #ff3366;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .char-name {
+            font-size: 32px;
+            font-weight: bold;
+            color: #0099ff;
+            border-bottom: 4px solid #ffcc00; /* 鈴の黄色い線 */
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .profile-title, .intro-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #0099ff;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .profile-list {
+            margin-bottom: 20px;
+            background-color: #f0f8ff;
+            padding: 15px;
+            border-radius: 15px;
+        }
+        .profile-list li {
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        .introduction {
+            font-size: 15px;
+            line-height: 1.8;
+            background-color: #fec;
+            padding: 15px;
+            border-radius: 15px;
+            border-left: 5px solid #ffcc00;
+        }
+
+        /* --- ギャラリー（表情差分） --- */
+        .gallery-section {
+            max-width: 1000px;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .section-title {
+            font-size: 22px;
+            color: #0099ff;
+            margin-bottom: 20px;
+            border-left: 6px solid #ff3366;
+            padding-left: 10px;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item {
+            background-color: #f9f9f9;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 10px;
+            text-align: center;
+            transition: 0.2s;
+        }
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            border-color: #0099ff;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .gallery-item span {
+            font-weight: bold;
+            color: #555;
+        }
+
+        /* --- 関連情報・配信情報 --- */
+        .info-section {
+            max-width: 1000px;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .info-links li {
+            margin-bottom: 12px;
+        }
+        .info-links a {
+            display: block;
+            padding: 15px 20px;
+            background-color: #f0f8ff;
+            border-radius: 15px;
+            font-weight: bold;
+            color: #0077cc;
+            transition: 0.2s;
+            border: 1px solid #cce5ff;
+        }
+        .info-links a:hover {
+            background-color: #0099ff;
+            color: #fff;
+        }
+
+        /* --- キャラクターナビゲーション --- */
+        .char-nav {
+            max-width: 1000px;
+            margin: 40px auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        .char-nav a {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            background-color: #ffcc00;
+            color: #333;
+            font-weight: bold;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: 0.2s;
+        }
+        .char-nav a:hover {
+            background-color: #ffbb00;
+            transform: scale(1.02);
+        }
+        .char-nav a.center-btn {
+            background-color: #0099ff;
+            color: white;
+        }
+        .char-nav a.center-btn:hover {
+            background-color: #0088ee;
+        }
+
+        /* --- フッター --- */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #333;
+            color: #fff;
+            margin-top: 60px;
+            font-size: 14px;
+        }
+
+        /* レスポンシブ対応（スマホ用） */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .profile-container {
+                margin: 20px 10px;
+                padding: 15px;
+            }
+            .gallery-section, .info-section, .char-nav {
+                margin: 20px 10px;
+            }
+            .char-nav {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">ドラえもん ファンサイト</div>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html">TOP</a></li>
+                <li><a href="dougu.html">ひみつ<ruby>道具<rt>どうぐ</rt></ruby></a></li>
+                <li><a href="news.html">おしらせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="profile-container">
+        
+        <div class="visual-area">
+            <img src="doraemon.png" alt="ドラえもん 全身イラスト" width="3000">
+        </div>
+
+        <div class="info-area">
+            <div class="catchphrase">22せいきからやってきたネコ<ruby>型<rt>がた</rt></ruby>ロボット（CV. 水田 わさび）</div>
+            <h1 class="char-name">👑 ドラえもん</h1>
+            
+            <div class="profile-title">【プロフィール】</div>
+            <ul class="profile-list">
+                <li>🌟 <strong><ruby>誕生日<rt>たんじょうび</rt></ruby>：</strong>9<ruby>月<rt>がつ</rt></ruby>3<ruby>日<rt>か</rt></ruby></li>
+                <li>📏 <strong><ruby>身長<rt>しんちょう</rt></ruby>：</strong>129.3cm</li>
+                <li>❤️ <strong>すきなもの：</strong>どら<ruby>焼き<rt>やき</rt></ruby></li>
+                <li>⚡ <strong>にがてなもの：</strong>ネズミ</li>
+            </ul>
+
+            <div class="intro-title">【しょうかい文】</div>
+            <p class="introduction">
+                のび太くんをたすけるために、未来からやってきました。お腹の「四次元ポケット」から、たくさんの便利な「ひみつ道具」を出して助けてくれます。ちょっぴりおっちょこちょいなところもあるけれど、とても頼りになるみんなのヒーローです！
+            </p>
+        </div>
+    </main>
+
+   
+
+    <section class="info-section">
+        <h2 class="section-title">🔗 【うれしい情報 / アニメやグッズ】</h2>
+        <ul class="info-links">
+            <li><a href="https://dora-world.com/contents?t=29" target="_blank">📺 ドラえもん公式サイト（外部サイトへ） ＞</a></li>
+            <li><a href="dougu.html">✨ ドラえもんの「ひみつ道具図鑑」ページへ ＞</a></li>
+            <li><a href="https://dora-world.com/goods" target="_blank">🛍️ かわいいグッズがいっぱい！グッズ公式ページへ ＞</a></li>
+        </ul>
+    </section>
+
+    <div class="char-nav">
+        <a href="news.html">◀ まえへもどる</a>
+        <a href="index.html" class="center-btn">🛠️ キャラクターにもどる</a>
+        <a href="dougu.html">つぎへすすむ ▶</a>
+    </div>
+
+    <footer>
+        <p>(C) 2026 Doraemon Fan Project. / Created for Lesson</p>
+    </footer>
+
+</body>
+</html>
