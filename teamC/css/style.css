@@ -223,3 +223,105 @@ body {
         height: 220px;
     }
 }
+
+
+/* MENU画像クリックで拡大表示 */
+.menu-popup-trigger {
+    cursor: pointer;
+    transition: transform .3s ease, opacity .3s ease;
+}
+
+.menu-popup-trigger:hover {
+    transform: scale(1.02);
+    opacity: .9;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+.menu-modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .3s ease, visibility .3s ease;
+}
+
+.menu-modal.is-open {
+    visibility: visible;
+    opacity: 1;
+}
+
+.menu-modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .72);
+}
+
+.menu-modal-content {
+    position: relative;
+    z-index: 1;
+    max-width: min(90vw, 700px);
+    max-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(.94);
+    transition: transform .3s ease;
+}
+
+.menu-modal.is-open .menu-modal-content {
+    transform: scale(1);
+}
+
+.menu-modal-content img {
+    display: block;
+    max-width: 90vw;
+    max-height: 85vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, .25);
+}
+
+.menu-modal-close {
+    position: absolute;
+    top: -48px;
+    right: -4px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    font-size: 38px;
+    font-weight: 200;
+    line-height: 1;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .menu-modal {
+        padding: 20px;
+    }
+
+    .menu-modal-content {
+        max-width: 92vw;
+        max-height: 88vh;
+    }
+
+    .menu-modal-content img {
+        max-width: 92vw;
+        max-height: 82vh;
+    }
+
+    .menu-modal-close {
+        top: -45px;
+        right: 0;
+    }
+}

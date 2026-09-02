@@ -31,25 +31,25 @@
 
             <div class="menu-list">
                 <div class="menu-item">
-                    <img src="img/menu1.webp" alt="トロピカルパフェ">
+                    <img src="img/menu1.webp" alt="トロピカルパフェ" class="menu-popup-trigger">
                     <h3>トロピカルパフェ</h3>
                     <p>¥2,700</p>
                 </div>
 
                 <div class="menu-item">
-                    <img src="img/menu2.jpg" alt="桃パフェ">
+                    <img src="img/menu2.jpg" alt="桃パフェ" class="menu-popup-trigger">
                     <h3>桃パフェ</h3>
                     <p>¥2,900</p>
                 </div>
 
                 <div class="menu-item">
-                    <img src="img/menu3.jpg" alt="マスカットパフェ">
+                    <img src="img/menu3.jpg" alt="マスカットパフェ" class="menu-popup-trigger">
                     <h3>マスカットパフェ</h3>
                     <p>¥3,000</p>
                 </div>
 
                 <div class="menu-item">
-                    <img src="img/menu4.jpg" alt="モンブランパフェ">
+                    <img src="img/menu4.jpg" alt="モンブランパフェ" class="menu-popup-trigger">
                     <h3>モンブランパフェ</h3>
                     <p>¥2,400</p>
                 </div>
@@ -86,5 +86,50 @@
     <footer class="footer">
         <p>© blanc cafe</p>
     </footer>
+
+    <!-- MENU画像ポップアップ -->
+    <div class="menu-modal" id="menuModal" aria-hidden="true">
+        <div class="menu-modal-overlay"></div>
+        <div class="menu-modal-content" role="dialog" aria-modal="true" aria-label="メニュー画像">
+            <button class="menu-modal-close" type="button" aria-label="閉じる">&times;</button>
+            <img id="menuModalImage" src="" alt="">
+        </div>
+    </div>
+
+    <script>
+        const menuTriggers = document.querySelectorAll('.menu-popup-trigger');
+        const menuModal = document.getElementById('menuModal');
+        const menuModalImage = document.getElementById('menuModalImage');
+        const menuModalClose = document.querySelector('.menu-modal-close');
+        const menuModalOverlay = document.querySelector('.menu-modal-overlay');
+
+        function openMenuModal(image) {
+            menuModalImage.src = image.src;
+            menuModalImage.alt = image.alt;
+            menuModal.classList.add('is-open');
+            menuModal.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('modal-open');
+        }
+
+        function closeMenuModal() {
+            menuModal.classList.remove('is-open');
+            menuModal.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('modal-open');
+        }
+
+        menuTriggers.forEach((image) => {
+            image.addEventListener('click', () => openMenuModal(image));
+        });
+
+        menuModalClose.addEventListener('click', closeMenuModal);
+        menuModalOverlay.addEventListener('click', closeMenuModal);
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && menuModal.classList.contains('is-open')) {
+                closeMenuModal();
+            }
+        });
+    </script>
+
 </body>
 </html>
