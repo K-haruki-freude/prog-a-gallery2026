@@ -1,0 +1,327 @@
+@charset "UTF-8";
+
+/* ==========================================
+   1. 全体設定（リセット＆ベース）
+   ========================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", serif; /* 映画の雰囲気に合わせた美しい明朝体 */
+    line-height: 2;
+    color: #4a5568;
+    background-color: #ffffff;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.3s ease;
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+/* ==========================================
+   2. ヘッダー（メインビジュアル）
+   ========================================== */
+.site-top {
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+.site-top-img {
+    width: 100%;
+    max-height: 80vh; /* 画像の通り、横いっぱいに表示 */
+    object-fit: cover;
+}
+
+/* ロゴマークなどを重ねる場合 */
+.site-top-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    max-width: 400px;
+}
+
+/* ==========================================
+   3. あらすじセクション（背景に百合の花）
+   ========================================== */
+.arasuzi {
+    position: relative;
+    padding: 100px 20px;
+    text-align: center;
+    background-color: #f7fafc;
+    /* 
+       背景にうっすらと百合の花の画像を敷く設定です。
+       './img/yuri-bg.jpg' の部分を実際の百合の背景画像パスに差し替えてください。
+    */
+    background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('../img/背景１.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* スクロール時に背景を固定して美しく見せる効果 */
+}
+
+/* 青みがかった美しい明朝体の見出し */
+.arasuzi-midasi h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    color: #3182ce; /* 画像のような澄んだブルー */
+    letter-spacing: 0.3em;
+    margin-bottom: 40px;
+}
+
+/* YouTubeのサムネイルや予告画像（中央配置・枠線） */
+.arasuzi-img {
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto 40px auto;
+    display: block;
+    border: 8px solid #ffffff; /* 白いフレーム */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* 中央揃えのあらすじテキスト */
+.arasuzi-text {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    text-align: center; /* 画像の通り中央揃えに */
+}
+
+.arasuzi-text p {
+    margin-bottom: 1.2rem;
+}
+
+/* ==========================================
+   4. キャストセクション（2カラム横並び）
+   ========================================== */
+.cast {
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+/* 2人のメインキャスト画像を並列に配置 */
+.cast-img {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.cast-img img {
+    width: calc(50% - 20px);
+    max-width: 350px;
+    height: auto;
+    object-fit: cover;
+}
+
+/* 縦並びの役者名リンク */
+.cast-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.cast-name {
+    font-size: 1.1rem;
+    letter-spacing: 0.15em;
+    color: #2d3748;
+    display: inline-block;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #cbd5e0; /* 控えめな下線 */
+}
+
+/* ==========================================
+   5. 主題歌セクション（左右レイアウト）
+   ========================================== */
+.theme-song {
+    max-width: 1000px;
+    margin: 100px auto;
+    padding: 0 20px;
+}
+
+/* 主題歌タイトル（中央揃え） */
+.theme-song-heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.theme-song-heading h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    color: #3182ce;
+    letter-spacing: 0.3em;
+}
+
+/* 画像と右側テキストを横並びにするFlexbox要素 */
+.theme-song-content {
+    display: flex;
+    align-items: flex-start; /* 上揃え */
+    gap: 40px;               /* 画像とテキストの間隔 */
+}
+
+/* 左側：画像エリア */
+.theme-song-img {
+    flex: 0 0 300px; /* 横幅を300pxで固定 */
+}
+
+.theme-song-img img {
+    width: 100%;
+    height: auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* 右側：テキスト全体エリア */
+.theme-song-right {
+    flex: 1; /* 残りの横幅をいっぱいに使う */
+}
+
+/* 「コメント」の見出し */
+.theme-song-comment {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #718096;
+    margin-bottom: 15px;
+    letter-spacing: 0.1em;
+}
+
+/* コメント本文 */
+.theme-song-text {
+    font-size: 0.95rem;
+    line-height: 2.2;
+    color: #4a5568;
+}
+
+/* ==========================================
+   5-2. 原作セクション（左右レイアウト）
+   ========================================== */
+.origin {
+    max-width: 1000px;
+    margin: 100px auto;
+    padding: 0 20px;
+}
+
+/* 原作見出し（h2デザインを統一） */
+.origin-heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.origin-heading h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    color: #3182ce;
+    letter-spacing: 0.3em;
+}
+
+/* 画像と右側テキストを横並びにするFlexbox要素 */
+.origin-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+/* 左側：画像エリア */
+.origin-img {
+    flex: 0 0 300px; /* 横幅を300pxで固定 */
+}
+
+.origin-img img {
+    width: 100%;
+    height: auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* 右側：テキストエリア全体 */
+.origin-right {
+    flex: 1; /* 残りの横幅を広く使用 */
+}
+
+/* 「汐見夏衛 原作」の見出しスタイル */
+.origin-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #718096;
+    margin-bottom: 15px;
+    letter-spacing: 0.1em;
+}
+
+/* プロフィール本文 */
+.origin-text {
+    font-size: 0.95rem;
+    line-height: 2.2;
+    color: #4a5568;
+}
+
+.origin-text p {
+    margin-bottom: 0.5rem;
+}
+
+
+/* ==========================================
+   7. レスポンシブ対応（スマホ画面での縦並び化）
+   ========================================== */
+@media (max-width: 767px) {
+    /* 画面幅が狭いときは主題歌・原作ともに縦並びにする */
+    .theme-song-content,
+    .origin-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .theme-song-img,
+    .origin-img {
+        flex: none;
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* ==========================================
+   6. フッター
+   ========================================== */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #ffffff;
+    color: #a0aec0;
+    font-size: 0.8rem;
+    border-top: 1px solid #edf2f7;
+}
+
+/* ==========================================
+   7. レスポンシブ対応（スマホ画面での縦並び化）
+   ========================================== */
+@media (max-width: 767px) {
+    /* 画面幅が狭いときは縦並びに戻す */
+    .theme-song-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .theme-song-img {
+        flex: none;
+        width: 100%;
+        max-width: 300px;
+    }
+}
