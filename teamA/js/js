@@ -1,0 +1,11 @@
+// 例1: ページが読み込まれたらログを出す
+console.log("Le Reveへようこそ！");
+
+// 例2: お知らせボタンをクリックしたら詳細を表示する
+const button = document.getElementById("info-btn");
+
+if (button) {
+    button.addEventListener("click", () => {
+        alert("本日の旬のケーキは「季節のイチゴタルト」です！");
+    });
+}
